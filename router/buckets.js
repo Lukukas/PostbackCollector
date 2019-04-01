@@ -1,9 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-require('body-parser-xml')(bodyParser);
+const convert = require('xml-js');
 const router = express.Router();
 router.use(bodyParser.json());
-router.use(bodyParser.xml());
+router.use(bodyParser.text({ type: `text/*` }));
 const keyVStore = require('scattered-store');
 const path = require('path');
 const folder = path.join(__dirname, '..', 'myStore');
@@ -43,8 +43,9 @@ router.delete('/:bucketId', async (req, res) => {
 
 router.post('/:bucketId', async (req, res) => {
     const dataArr = await store.get(req.params.bucketId);
-    console.log(req.body);
-    dataArr.push(req.body);
+    const decodedBody = decodeURIComponent(req.body).replace(/\+/g, ' ');
+    const bodyObject = convert.xml2js(decodedBody, { compact: true, textKey: 'value', attributesKey: 'value', commentKey: 'value' });
+    dataArr.push(bodyObject);
     await store.set(req.params.bucketId, dataArr);
     res.statusCode = 201;
     res.send();
