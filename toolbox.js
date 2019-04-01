@@ -1,6 +1,6 @@
 class Toolbox {
     static createRandomString() {
-        Math.random().toString(35).substring(8);
+        return Math.random().toString(35).substring(3).toUpperCase();
     }
 }
 
