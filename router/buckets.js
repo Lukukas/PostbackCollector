@@ -25,6 +25,20 @@ router.post('/', async (req, res) => {
     });
 });
 
+router.get('/', async (req, res) => {
+    const stream = store.getAll();
+    let arr = [];
+    stream.on('readable', () => {
+        const entry = stream.read();
+        if(entry !== null) {
+            arr.push(entry.key);
+        }
+    });
+    stream.on('end', () => {
+        res.json({ keys: arr });
+    });
+});
+
 router.get('/:bucketId', async (req, res) => {
     const data = await store.get(req.params.bucketId);
     res.json({postbacks: data});
