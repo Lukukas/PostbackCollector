@@ -4,9 +4,9 @@ const basicAuth = require('express-basic-auth');
 const app = express();
 let config;
 
-if (process.env.user && process.env.password) {
-    config.user = process.env.user;
-    config.password = process.env.password;
+if (process.env.USER && process.env.PASSWORD) {
+    config.user = process.env.USER;
+    config.password = process.env.PASSWORD;
 } else {
     config = require('./config.json');
 }
