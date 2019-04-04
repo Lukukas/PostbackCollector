@@ -5,6 +5,7 @@ const app = express();
 let config;
 
 if (process.env.USER && process.env.PASSWORD) {
+    config = {};
     config.user = process.env.USER;
     config.password = process.env.PASSWORD;
 } else {
