@@ -107,7 +107,7 @@ router.post('/:bucketId', async (req, res) => {
     try {
         const dataArr = await store.get(req.params.bucketId);
         if (dataArr) {
-            if (req.headers['content-type'] === 'application/json') {
+            if (req.headers['content-type'].includes('application/json')) {
                 dataArr.push(req.body);
                 await store.set(req.params.bucketId, dataArr);
                 res.statusCode = 201;
@@ -128,7 +128,6 @@ router.post('/:bucketId', async (req, res) => {
         res.statusCode = 500;
         res.json({ "error": "something went wrong :("})
         console.log(e);
-        console.log(req.headers);
     }
 });
 
