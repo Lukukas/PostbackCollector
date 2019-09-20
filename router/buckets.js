@@ -128,6 +128,7 @@ router.post('/:bucketId', async (req, res) => {
         res.statusCode = 500;
         res.json({ "error": "something went wrong :("})
         console.log(e);
+        console.log(req.headers);
     }
 });
 
