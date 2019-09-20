@@ -107,12 +107,19 @@ router.post('/:bucketId', async (req, res) => {
     try {
         const dataArr = await store.get(req.params.bucketId);
         if (dataArr) {
-            const decodedBody = decodeURIComponent(req.body).replace(/\+/g, ' ');
-            const bodyObject = convert.xml2js(decodedBody, { compact: true, textKey: 'value', attributesKey: 'value', commentKey: 'value' });
-            dataArr.push(bodyObject);
-            await store.set(req.params.bucketId, dataArr);
-            res.statusCode = 201;
-            res.send();
+            if (req.headers['content-type'] === 'application/json') {
+                dataArr.push(req.body);
+                await store.set(req.params.bucketId, dataArr);
+                res.statusCode = 201;
+                res.send();
+            } else {
+                const decodedBody = decodeURIComponent(req.body).replace(/\+/g, ' ');
+                const bodyObject = convert.xml2js(decodedBody, { compact: true, textKey: 'value', attributesKey: 'value', commentKey: 'value' });
+                dataArr.push(bodyObject);
+                await store.set(req.params.bucketId, dataArr);
+                res.statusCode = 201;
+                res.send();
+            }
         } else {
             res.statusCode = 404;
             res.send();

@@ -1,3 +1,5 @@
 node_modules/*
 myStore/
 config.json
+DockerFile
+.dockerignore
