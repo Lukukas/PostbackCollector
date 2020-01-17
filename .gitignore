@@ -1,5 +1,6 @@
 node_modules/*
 myStore/
+myUnsecureStore/
 config.json
 DockerFile
 .dockerignore

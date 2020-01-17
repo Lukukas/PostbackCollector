@@ -1,26 +1,12 @@
 const express = require('express');
-const basicAuth = require('express-basic-auth');
 const bodyParser = require('body-parser');
 const convert = require('xml-js');
-let config;
-
-if (process.env.USER && process.env.PASSWORD) {
-    config = {};
-    config.user = process.env.USER;
-    config.password = process.env.PASSWORD;
-} else {
-    config = require('../config.json');
-}
-
 const router = express.Router();
-router.use(basicAuth({
-    users: { [config.user] : config.password }
-}));
 router.use(bodyParser.json());
 router.use(bodyParser.text({ type: `text/*` }));
 const keyVStore = require('scattered-store');
 const path = require('path');
-const folder = path.join(__dirname, '..', 'myStore');
+const folder = path.join(__dirname, '..', 'myUnsecureStore');
 const Toolbox = require('../toolbox');
 
 const store = keyVStore.create(folder, (err) => {
