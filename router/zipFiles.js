@@ -49,7 +49,7 @@ router.get('/withhiddenexe', (req, res) => {
     res.download(zip);
 });
 
-router.get('/wothhiddeneicar', (req, res) => {
+router.get('/withhiddeneicar', (req, res) => {
     const zip = path.join(zips, 'SCORM12WITHHIDDENEICAR.zip');
     res.download(zip);
 });
