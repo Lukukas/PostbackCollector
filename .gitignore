@@ -4,3 +4,4 @@ myUnsecureStore/
 config.json
 DockerFile
 .dockerignore
+zips/.DS_Store
