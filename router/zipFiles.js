@@ -54,4 +54,19 @@ router.get('/withhiddeneicar', (req, res) => {
     res.download(zip);
 });
 
+router.get('/mp4', (req, res) => {
+    const zip = path.join(zips, 'Api Automation URL MP4 Course.mp4');
+    res.download(zip);
+});
+
+router.get('/mp3', (req, res) => {
+    const zip = path.join(zips, 'Api Automation URL MP3 Course.mp3');
+    res.download(zip);
+});
+
+router.get('/pdf', (req, res) => {
+    const zip = path.join(zips, 'Api Automation URL PDF Course.pdf');
+    res.download(zip);
+});
+
 module.exports = router;
