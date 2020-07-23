@@ -69,8 +69,8 @@ router.get('/pdf', (req, res) => {
     res.download(zip);
 });
 
-router.get('/SCORM12AreallyLongNamethatgoesonAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOn', (req, res) => {
-    const zip = path.join(zips, 'SCORM12AreallyLongNamethatgoesonAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOnAndOn.zip');
+router.get('/scorm12.zip', (req, res) => {
+    const zip = path.join(zips, 'SCORM12.zip');
     res.download(zip);
 });
 
