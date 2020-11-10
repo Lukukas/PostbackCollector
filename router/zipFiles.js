@@ -74,4 +74,19 @@ router.get('/scorm12.zip', (req, res) => {
     res.download(zip);
 });
 
+router.get('/NewFile', (req, res) => {
+    const file = path.join(zips, 'NewFile.html');
+    res.download(file);
+});
+
+router.get('/Playing', (req, res) => {
+    const file = path.join(zips, 'Playing.html');
+    res.download(zip);
+});
+
+router.get('/PlayingVersion', (req, res) => {
+    const file = path.join(zips, 'PlayingVersion.html');
+    res.download(file);
+});
+
 module.exports = router;
