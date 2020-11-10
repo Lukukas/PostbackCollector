@@ -81,7 +81,7 @@ router.get('/NewFile', (req, res) => {
 
 router.get('/Playing', (req, res) => {
     const file = path.join(zips, 'Playing.html');
-    res.download(zip);
+    res.download(file);
 });
 
 router.get('/PlayingVersion', (req, res) => {
