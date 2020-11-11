@@ -89,4 +89,14 @@ router.get('/PlayingVersion', (req, res) => {
     res.download(file);
 });
 
+router.get('/Exe', (req, res) => {
+    const file = path.join(zips, 'myExeFile.exe');
+    res.download(file);
+});
+
+router.get('/Eicar', (req, res) => {
+    const file = path.join(zips, 'eicar.com');
+    res.download(file);
+});
+
 module.exports = router;
