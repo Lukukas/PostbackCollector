@@ -64,6 +64,16 @@ router.get('/mp3', (req, res) => {
     res.download(zip);
 });
 
+router.get('/WithID3V1Tags', (req, res) => {
+    const zip = path.join(zips, 'WithID3V1Tags.mp3');
+    res.download(zip);
+});
+
+router.get('/NoID3Tags', (req, res) => {
+    const zip = path.join(zips, 'NoID3Tags.mp3');
+    res.download(zip);
+});
+
 router.get('/pdf', (req, res) => {
     const zip = path.join(zips, 'Api Automation URL PDF Course.pdf');
     res.download(zip);
